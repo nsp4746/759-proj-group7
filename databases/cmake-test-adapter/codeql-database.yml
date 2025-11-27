@@ -1,0 +1,12 @@
+---
+sourceLocationPrefix: C:\Users\Nikhil\25-26\759\UntrustIDE\sample-data\fredericbonnet.cmake-test-adapter-0.16.3\src
+baselineLinesOfCode: 11070
+unicodeNewlines: true
+columnKind: utf16
+primaryLanguage: javascript
+creationMetadata:
+  cliVersion: 2.23.3
+  creationTime: 2025-11-06T19:53:40.297244700Z
+overlayBaseDatabase: false
+overlayDatabase: false
+finalised: true

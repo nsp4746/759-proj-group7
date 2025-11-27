@@ -1,0 +1,46 @@
+You’re triaging shell-command injection alerts.
+
+Rule: js/shell-command-injection-from-environment
+Score: 8.5
+File: extension.js
+Line: 94
+
+Sink (where the command is executed):
+```
+   91:   let disposable = vscode.commands.registerCommand('extension.run', () => {
+   92:     const config = vscode.workspace.getConfiguration('myExtension');
+   93:     const command = config.get('command');
+   94:     require('child_process').exec(command);
+   95:   });
+```
+
+Source (where the input originates):
+```
+   44:         "configuration": {
+   45:             "title": "My Extension",
+   46:             "properties": {
+   47:                 "myExtension.command": {
+   48:                     "type": "string",
+   49:                     "default": "echo 'hello'",
+   50:                     "description": "The command to run."
+   51:                 }
+```
+
+Taint Path (data flow from source to sink):
+1. Value from configuration 'myExtension.command' at package.json:47
+2. is read by getConfiguration('myExtension').get('command') at extension.js:93
+3. and flows into the 'command' argument of 'exec' at extension.js:94
+
+    Please answer these questions:
+    1. Does the command execute user-controlled or environment-derived input?
+    2. Is there any sanitization or validation of the input?
+    3. Is the execution path from source to sink reachable in a realistic scenario?
+    4. Are there any other constraints or conditions that might mitigate the risk?
+
+    Return a JSON response with your verdict, confidence, and a brief reason. The reason must reference details from the code snippets.
+    {
+        "verdict": "malicious|benign|unsure",
+        "confidence": "high|medium|low",
+        "reason": "..."
+    }
+    

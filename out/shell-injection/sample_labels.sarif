@@ -1,0 +1,721 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "SampleLabels",
+          "informationUri": "https://example.com",
+          "rules": [
+            {
+              "id": "js/ml-powered/shell-command-injection-from-environment",
+              "name": "js/ml-powered/shell-command-injection-from-environment",
+              "shortDescription": {
+                "text": "js/ml-powered/shell-command-injection-from-environment"
+              },
+              "fullDescription": {
+                "text": "(Experimental) This shell command depends on [an uncontrolled value](1). Identified using machine learning."
+              }
+            }
+          ]
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "home/etlin/data/download_packages/mhutchie.git-graph-1.30.0/extension/out/life-cycle/utils.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "mnt/drive/vscode_extensions/data/download_packages/iann0036.live-share-for-aws-cloud9-0.11.4/extension/fileManager.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "mnt/drive/vscode_extensions/data/download_packages/usqlextpublisher.usql-vscode-ext-0.2.15/extension/out/src/extension.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "mnt/drive/vscode_extensions/data/download_packages/fredericbonnet.cmake-test-adapter-0.16.3/extension/out/cmake-runner.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "mnt/drive/vscode_extensions/data/download_packages/fredericbonnet.cmake-test-adapter-0.16.3/extension/out/cmake-adapter.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "home/etlin/data/download_packages/mhutchie.git-graph-1.30.0/extension/out/life-cycle/startup.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "home/etlin/data/download_packages/mhutchie.git-graph-1.30.0/extension/out/utils.js"
+          }
+        }
+      ],
+      "results": [
+        {
+          "ruleId": "js/ml-powered/shell-command-injection-from-environment",
+          "level": "warning",
+          "message": {
+            "text": "(Experimental) This shell command depends on [an uncontrolled value](1). Identified using machine learning."
+          },
+          "properties": {
+            "label": "benign",
+            "notes": "Only writes lifecycle JSON via fs.writeFile; no shell invocation."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "home/etlin/data/download_packages/mhutchie.git-graph-1.30.0/extension/out/life-cycle/utils.js",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 52
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "id": 1,
+              "message": {
+                "text": "source"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "home/etlin/data/download_packages/mhutchie.git-graph-1.30.0/extension/out/life-cycle/utils.js",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 28
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "js/ml-powered/shell-command-injection-from-environment",
+          "level": "warning",
+          "message": {
+            "text": "(Experimental) This shell command depends on [an uncontrolled value](1). Identified using machine learning."
+          },
+          "properties": {
+            "label": "benign",
+            "notes": "Recursive upload uses HTTPS + fs sync; no child_process or shell execution observed."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mnt/drive/vscode_extensions/data/download_packages/iann0036.live-share-for-aws-cloud9-0.11.4/extension/fileManager.js",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 244
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "id": 1,
+              "message": {
+                "text": "source"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mnt/drive/vscode_extensions/data/download_packages/iann0036.live-share-for-aws-cloud9-0.11.4/extension/fileManager.js",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 270
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "js/ml-powered/shell-command-injection-from-environment",
+          "level": "warning",
+          "message": {
+            "text": "(Experimental) This shell command depends on [an uncontrolled value](1). Identified using machine learning."
+          },
+          "properties": {
+            "label": "benign",
+            "notes": "uploadRemoteFile wraps HTTP PUT with request module; command string never executed locally."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mnt/drive/vscode_extensions/data/download_packages/iann0036.live-share-for-aws-cloud9-0.11.4/extension/fileManager.js",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 178
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "id": 1,
+              "message": {
+                "text": "source"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mnt/drive/vscode_extensions/data/download_packages/iann0036.live-share-for-aws-cloud9-0.11.4/extension/fileManager.js",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 270
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "js/ml-powered/shell-command-injection-from-environment",
+          "level": "warning",
+          "message": {
+            "text": "(Experimental) This shell command depends on [an uncontrolled value](1). Identified using machine learning."
+          },
+          "properties": {
+            "label": "benign",
+            "notes": "Branch only uploads file contents via request/fs; no shell command building."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mnt/drive/vscode_extensions/data/download_packages/iann0036.live-share-for-aws-cloud9-0.11.4/extension/fileManager.js",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 309
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "id": 1,
+              "message": {
+                "text": "source"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mnt/drive/vscode_extensions/data/download_packages/iann0036.live-share-for-aws-cloud9-0.11.4/extension/fileManager.js",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 270
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "js/ml-powered/shell-command-injection-from-environment",
+          "level": "warning",
+          "message": {
+            "text": "(Experimental) This shell command depends on [an uncontrolled value](1). Identified using machine learning."
+          },
+          "properties": {
+            "label": "benign",
+            "notes": "Handles directory recursion + fs.stat; emits websocket events but no shell execution."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mnt/drive/vscode_extensions/data/download_packages/iann0036.live-share-for-aws-cloud9-0.11.4/extension/fileManager.js",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 287
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "id": 1,
+              "message": {
+                "text": "source"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mnt/drive/vscode_extensions/data/download_packages/iann0036.live-share-for-aws-cloud9-0.11.4/extension/fileManager.js",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 270
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "js/ml-powered/shell-command-injection-from-environment",
+          "level": "warning",
+          "message": {
+            "text": "(Experimental) This shell command depends on [an uncontrolled value](1). Identified using machine learning."
+          },
+          "properties": {
+            "label": "benign",
+            "notes": "Same recursive upload path as other finding; no shell API involved."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mnt/drive/vscode_extensions/data/download_packages/iann0036.live-share-for-aws-cloud9-0.11.4/extension/fileManager.js",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 287
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "id": 1,
+              "message": {
+                "text": "source"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mnt/drive/vscode_extensions/data/download_packages/iann0036.live-share-for-aws-cloud9-0.11.4/extension/fileManager.js",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 270
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "js/ml-powered/shell-command-injection-from-environment",
+          "level": "warning",
+          "message": {
+            "text": "(Experimental) This shell command depends on [an uncontrolled value](1). Identified using machine learning."
+          },
+          "properties": {
+            "label": "benign",
+            "notes": "fs.readdir callback enumerates files only; never touches child_process."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mnt/drive/vscode_extensions/data/download_packages/iann0036.live-share-for-aws-cloud9-0.11.4/extension/fileManager.js",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 273
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "id": 1,
+              "message": {
+                "text": "source"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mnt/drive/vscode_extensions/data/download_packages/iann0036.live-share-for-aws-cloud9-0.11.4/extension/fileManager.js",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 270
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "js/ml-powered/shell-command-injection-from-environment",
+          "level": "warning",
+          "message": {
+            "text": "(Experimental) This shell command depends on [an uncontrolled value](1). Identified using machine learning."
+          },
+          "properties": {
+            "label": "benign",
+            "notes": "Duplicate of upload stats logic; benign per manual review."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mnt/drive/vscode_extensions/data/download_packages/iann0036.live-share-for-aws-cloud9-0.11.4/extension/fileManager.js",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 244
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "id": 1,
+              "message": {
+                "text": "source"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mnt/drive/vscode_extensions/data/download_packages/iann0036.live-share-for-aws-cloud9-0.11.4/extension/fileManager.js",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 270
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "js/ml-powered/shell-command-injection-from-environment",
+          "level": "warning",
+          "message": {
+            "text": "(Experimental) This shell command depends on [an uncontrolled value](1). Identified using machine learning. (Experimental) This shell command depends on [an uncontrolled value](2). Identified using machine learning. (Experimental) This shell command depends on [an uncontrolled value](3). Identified using machine learning."
+          },
+          "properties": {
+            "label": "needs_review",
+            "notes": "Extension copies runtime files then later calls Helpers.runCommand; need to inspect arguments beyond snippet."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mnt/drive/vscode_extensions/data/download_packages/usqlextpublisher.usql-vscode-ext-0.2.15/extension/out/src/extension.js",
+                  "index": 2
+                },
+                "region": {
+                  "startLine": 274
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "id": 1,
+              "message": {
+                "text": "source"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mnt/drive/vscode_extensions/data/download_packages/usqlextpublisher.usql-vscode-ext-0.2.15/extension/out/src/extension.js",
+                  "index": 2
+                },
+                "region": {
+                  "startLine": 278
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "js/ml-powered/shell-command-injection-from-environment",
+          "level": "warning",
+          "message": {
+            "text": "(Experimental) This shell command depends on [an uncontrolled value](1). Identified using machine learning."
+          },
+          "properties": {
+            "label": "benign",
+            "notes": "Conditionally uploads via uploadExistingFile; still pure fs/request code, no exec."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mnt/drive/vscode_extensions/data/download_packages/iann0036.live-share-for-aws-cloud9-0.11.4/extension/fileManager.js",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 301
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "id": 1,
+              "message": {
+                "text": "source"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mnt/drive/vscode_extensions/data/download_packages/iann0036.live-share-for-aws-cloud9-0.11.4/extension/fileManager.js",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 270
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "js/ml-powered/shell-command-injection-from-environment",
+          "level": "warning",
+          "message": {
+            "text": "Load tests spawns user-configured ctest with extra args"
+          },
+          "properties": {
+            "label": "malicious",
+            "notes": "Workspace setting extraCtestLoadArgs flows directly into child_process.spawn(ctestPath, [..., extraArgs]). Unescaped args allow command injection."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mnt/drive/vscode_extensions/data/download_packages/fredericbonnet.cmake-test-adapter-0.16.3/extension/out/cmake-runner.js",
+                  "index": 3
+                },
+                "region": {
+                  "startLine": 24
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "id": 1,
+              "message": {
+                "text": "source"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mnt/drive/vscode_extensions/data/download_packages/fredericbonnet.cmake-test-adapter-0.16.3/extension/out/cmake-adapter.js",
+                  "index": 4
+                },
+                "region": {
+                  "startLine": 145
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "js/ml-powered/shell-command-injection-from-environment",
+          "level": "warning",
+          "message": {
+            "text": "(Experimental) This shell command depends on [an uncontrolled value](1). Identified using machine learning."
+          },
+          "properties": {
+            "label": "benign",
+            "notes": "Lock file nonce generation: only fs reads/writes, no command execution."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "home/etlin/data/download_packages/mhutchie.git-graph-1.30.0/extension/out/life-cycle/startup.js",
+                  "index": 5
+                },
+                "region": {
+                  "startLine": 82
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "id": 1,
+              "message": {
+                "text": "source"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "home/etlin/data/download_packages/mhutchie.git-graph-1.30.0/extension/out/life-cycle/utils.js",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 28
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "js/ml-powered/shell-command-injection-from-environment",
+          "level": "warning",
+          "message": {
+            "text": "(Experimental) This shell command depends on [an uncontrolled value](1). Identified using machine learning."
+          },
+          "properties": {
+            "label": "benign",
+            "notes": "Reads JSON from disk to track lifecycle state; never reaches shell APIs."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "home/etlin/data/download_packages/mhutchie.git-graph-1.30.0/extension/out/life-cycle/utils.js",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 34
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "id": 1,
+              "message": {
+                "text": "source"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "home/etlin/data/download_packages/mhutchie.git-graph-1.30.0/extension/out/life-cycle/utils.js",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 28
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "js/ml-powered/shell-command-injection-from-environment",
+          "level": "warning",
+          "message": {
+            "text": "(Experimental) This shell command depends on [an uncontrolled value](1). Identified using machine learning."
+          },
+          "properties": {
+            "label": "benign",
+            "notes": "saveLifeCycleStateInDirectory writes JSON via fs.writeFile only; benign."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "home/etlin/data/download_packages/mhutchie.git-graph-1.30.0/extension/out/life-cycle/utils.js",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 52
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "id": 1,
+              "message": {
+                "text": "source"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "home/etlin/data/download_packages/mhutchie.git-graph-1.30.0/extension/out/life-cycle/utils.js",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 28
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "js/ml-powered/shell-command-injection-from-environment",
+          "level": "warning",
+          "message": {
+            "text": "(Experimental) This shell command depends on [an uncontrolled value](1). Identified using machine learning."
+          },
+          "properties": {
+            "label": "malicious",
+            "notes": "getGitExecutable spawns user-provided git path via cp.spawn; attacker can supply arbitrary executable."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "home/etlin/data/download_packages/mhutchie.git-graph-1.30.0/extension/out/utils.js",
+                  "index": 6
+                },
+                "region": {
+                  "startLine": 515
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "id": 1,
+              "message": {
+                "text": "source"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "home/etlin/data/download_packages/mhutchie.git-graph-1.30.0/extension/out/utils.js",
+                  "index": 6
+                },
+                "region": {
+                  "startLine": 502
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "js/ml-powered/shell-command-injection-from-environment",
+          "level": "warning",
+          "message": {
+            "text": "(Experimental) This shell command depends on [an uncontrolled value](1). Identified using machine learning."
+          },
+          "properties": {
+            "label": "malicious",
+            "notes": "findGitWin32InPath iterates PATH entries and spawns each candidate with attacker-controllable path."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "home/etlin/data/download_packages/mhutchie.git-graph-1.30.0/extension/out/utils.js",
+                  "index": 6
+                },
+                "region": {
+                  "startLine": 522
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "id": 1,
+              "message": {
+                "text": "source"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "home/etlin/data/download_packages/mhutchie.git-graph-1.30.0/extension/out/utils.js",
+                  "index": 6
+                },
+                "region": {
+                  "startLine": 502
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
