@@ -1,25 +1,29 @@
 # How to run
+## Steps
 
-  ## Steps
-  1. Clone the Git REPO 
-  2. Install Python Version 3.12.5
-  3. If using vs code, ctrl + shift + p, create a new .venv
-  4. Run ``pip install -r requirements.txt``
-  4. Install CODEQL via the VSCode extension marketplace, this also installs the CLI version of CodeQL 
-  5. Update the databses if needed, via the command. Be sure to unzip src.zip from eithe sample-data/ or databases/
-    ```bash
-    codeql database create C:\..\UntrustIDE-759-project\databases\NEW_DATA_BASE_NAME --language=javascript --source-root C:\..\UntrustIDE\sample-data\fredericbonnet.cmake-test-adapter-0.16.3\src\
-    ```
-  6. Obtain a free gemini api key from [Google AI Studio](aistudio.google.com)
-  7. follow the example in the .env.example file to load your key correctly 
-  8. run queries, export sarif. Below is an example query
-    ```bash
-    codeql database analyze .\databases\DATABASE_NAME\ .\ql\javascript\ql\experimental\adaptivethreatmodeling\src\ShellCommandInjectionFromEnvironmentATM.ql --format=sarifv2.1.0 --output .\out\shell-injection\shell-injection.DATABASE-NAME.sarif --threads=4 --ram=7000
-    ```
-  9. run gemini.py on the files
-    ```python
-    python .\new\\gemini.py --sarif .\\out\shell-injection.sarif --src-zip .\databases\git-graph\src.zip
-    ```.
+1. **Clone the Git repository**
+2. **Install Python 3.12.5**
+3. If using VS Code, press `Ctrl + Shift + P` and create a new `.venv`
+4. Run:
+   ```bash
+   pip install -r requirements.txt
+   ```
+5. Install **CodeQL** via the VS Code Extension Marketplace (this also installs the CLI version)
+6. Update the databases if needed. Be sure to unzip `src.zip` from either `sample-data/` or `databases/`  
+   Example:
+   ```bash
+   codeql database create C:\..\UntrustIDE-759-project\databases\NEW_DATA_BASE_NAME --language=javascript --source-root C:\..\UntrustIDE\sample-data\fredericbonnet.cmake-test-adapter-0.16.3\src\
+   ```
+7. Obtain a free Gemini API key from [Google AI Studio](https://aistudio.google.com)
+8. Follow the example in the `.env.example` file to load your key correctly
+9. Run queries and export SARIF. Example:
+   ```bash
+   codeql database analyze .\databases\DATABASE_NAME\ .\ql\javascript\ql\experimental\adaptivethreatmodeling\src\ShellCommandInjectionFromEnvironmentATM.ql --format=sarifv2.1.0 --output .\out\shell-injection\shell-injection.DATABASE-NAME.sarif --threads=4 --ram=7000
+   ```
+10. Run `gemini.py` on the files:
+   ```bash
+   python .\new\gemini.py --sarif .\out\shell-injection.sarif --src-zip .\databases\git-graph\src.zip
+   ```
 
 ### Below is the original readme file from the authors of UntrustIDE
 
