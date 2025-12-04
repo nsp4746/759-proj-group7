@@ -24,7 +24,7 @@ This is an example of a benign finding. The user input is sanitized before being
 const userInput = req.query.filename;
 // Benign: The input is sanitized using a known library before being used.
 const sanitizedInput = DOMPurify.sanitize(userInput);
-const result = execSync(`ls -l ${\sanitizedInput}`);
+const result = execSync(`ls -l sanitizedinput`);
 ```
 
 **Alert to Triage:**
