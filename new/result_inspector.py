@@ -12,8 +12,22 @@ from typing import Iterable, Optional
 def format_finding_as_prompt(record: dict) -> str:
     """Formats a single finding record into a detailed LLM prompt."""
 
-    prompt = f"""You’re triaging shell-command injection alerts.
+    prompt = f"""You are a Senior Product Security Engineer. Your goal is to triage static analysis results from CodeQL to identify False Positives.
+You prioritize precision but must not dismiss alerts without clear evidence of sanitization or lack of reachability.
 
+# TASK
+Analyze the following CodeQL alert for a potential shell-command injection vulnerability.
+
+**Benign Example (for reference):**
+This is an example of a benign finding. The user input is sanitized before being used in the command.
+```javascript
+const userInput = req.query.filename;
+// Benign: The input is sanitized using a known library before being used.
+const sanitizedInput = DOMPurify.sanitize(userInput);
+const result = execSync(`ls -l ${\sanitizedInput}`);
+```
+
+**Alert to Triage:**
 Rule: {record.get('rule_id', 'N/A')}
 Score: {record.get('score', 'N/A')}
 File: {record.get('sink', {}).get('uri', 'N/A')}
@@ -44,18 +58,37 @@ Taint Path (data flow from source to sink):
             prompt += f"{i+1}. {message} at {uri}:{line}\n"
 
     prompt += textwrap.dedent("""
+    
+    ANALYSIS INSTRUCTIONS
+
+    Think step-by-step. Do not provide the JSON verdict yet. Analyze the code in the following order:
+
+    Source Analysis: Is the source user-controlled? (e.g., workspace settings, file inputs, web requests). Is it hardcoded?
+
+    Sink Analysis: Is the sink actually dangerous? Does it execute a shell command?
+
+    Mitigation Analysis: Is there any code between the source and sink that validates or sanitizes the input? (e.g., shlex.quote, regex whitelisting, type casting).
+
+    Data Flow Reality: Does the data actually flow from the variable defined in the source to the sink, or is the path broken?
+    
+    
     Please answer these questions:
     1. Does the command execute user-controlled or environment-derived input?
     2. Is there any sanitization or validation of the input?
     3. Is the execution path from source to sink reachable in a realistic scenario?
     4. Are there any other constraints or conditions that might mitigate the risk?
 
-    Return a JSON response with your verdict, confidence, and a brief reason. The reason must reference details from the code snippets.
-    {
-        "verdict": "malicious|benign|unsure",
-        "confidence": "high|medium|low",
-        "reason": "..."
-    }
+    OUTPUT INSTRUCTIONS
+
+    After your analysis, determine the verdict.
+
+    Malicious: The input is user-controlled, flows to a dangerous sink, and has NO effective sanitization.
+
+    Benign: The input is hardcoded, heavily sanitized, or the code path is dead/unreachable.
+
+    Unsure: The context is missing critical definitions (e.g., imported functions) required to make a decision.
+
+    Return ONLY a JSON object with this structure: {{ "analysis_summary": "One sentence summary of your step-by-step thinking.", "verdict": "malicious|benign|unsure", "confidence": "high|medium|low", "reason": "A concise technical explanation referencing specific variable names and lines from the snippets." }}
     """)
 
     return prompt
